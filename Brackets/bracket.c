@@ -29,11 +29,12 @@ void	check_str(char *str)
 		{
 			if (check_correct(buffer[buffCount - 1], str[charCount]))
 				buffCount--;
+			else
+				buffCount = -1;
 		}
 		charCount++;
 	}
-	printf("%i\n", buffCount);
-	if (buffCount > 0)
+	if (buffCount != 0)
 		write(1, "error\n", 6);
 	else if (buffCount == 0)
 		write(1, "ok\n", 3);
